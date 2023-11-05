@@ -3,41 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GissaEttTal.MainPage">
 
-    <ScrollView>
+    <ScrollView HorizontalScrollBarVisibility="Never">
         <VerticalStackLayout
-            Spacing="15"
-            Padding="30"
-            VerticalOptions="Center">
+            Spacing="30"
+            Padding="20"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            WidthRequest="300" >
+           
 
-            <Image
+        <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
+        <Label
                 Text="Gissa ett tal mellan 1 och 20"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
+                FontSize="26"
                 HorizontalOptions="Center" />
 
-            <Entry
+        <Entry
                 x:Name="UserGuess"
                 Placeholder="Din gissning?"
                 Keyboard="Numeric"
-                HorizontalOptions="FillAndExpand" />
-
-            <Button
-                x:Name="CounterBtn"
+                HorizontalOptions="FillAndExpand" 
+                Completed="OnEnterKey"/>
+            
+            <HorizontalStackLayout
+                Spacing="10"
+                Padding="20"
+                HorizontalOptions="Center">
+                
+                <Button
+                x:Name="Btn_Guess"
                 Text="Klicka här"
                 SemanticProperties.Hint="Take your guess to see if it´s correct"
                 Clicked="OnGuessButtonClicked"
                 HorizontalOptions="Center" FontAutoScalingEnabled="False" />
-
-            <Label x:Name="HintLabel"
+                
+                <Button x:Name="Btn_PlayAgain"
+                    Text="Spela igen?"
+                    SemanticProperties.Hint="Plays the game again"
+                    Clicked="PlayAgainButtonClicked"
+                    HorizontalOptions="Center" 
+                    FontAutoScalingEnabled="False" 
+                    />
+            </HorizontalStackLayout>
+        
+        <Label x:Name="HintLabel"
                    HorizontalOptions="Center" />
 
+
         </VerticalStackLayout>
+
     </ScrollView>
 
 </ContentPage>
